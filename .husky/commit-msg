@@ -1,3 +1,13 @@
 npx --no -- commitlint --edit "$1"
+status=$?
 
+if [ $status -ne 0 ]; then
+  echo ""
+  echo "=================================================="
+  echo "Error: Commit message does not follow the required format."
+  echo "Please follow the format: type(#issue): description"
+  echo "Example: chore(#1): add husky"
+  echo "=================================================="
+  exit 1
+fi
 
